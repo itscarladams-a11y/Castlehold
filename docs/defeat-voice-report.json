@@ -1,0 +1,56 @@
+[
+  {
+    "file": "human_defeat_1.wav",
+    "seconds": 0.34,
+    "peak": 0.73,
+    "rms": 0.1694
+  },
+  {
+    "file": "human_defeat_2.wav",
+    "seconds": 0.365,
+    "peak": 0.73,
+    "rms": 0.1587
+  },
+  {
+    "file": "human_defeat_3.wav",
+    "seconds": 0.39,
+    "peak": 0.73,
+    "rms": 0.1704
+  },
+  {
+    "file": "orc_defeat_1.wav",
+    "seconds": 0.4,
+    "peak": 0.73,
+    "rms": 0.1559
+  },
+  {
+    "file": "orc_defeat_2.wav",
+    "seconds": 0.425,
+    "peak": 0.73,
+    "rms": 0.152
+  },
+  {
+    "file": "orc_defeat_3.wav",
+    "seconds": 0.45,
+    "peak": 0.73,
+    "rms": 0.1418
+  },
+  {
+    "file": "ogre_defeat_1.wav",
+    "seconds": 0.52,
+    "peak": 0.73,
+    "rms": 0.1574
+  },
+  {
+    "file": "ogre_defeat_2.wav",
+    "seconds": 0.545,
+    "peak": 0.73,
+    "rms": 0.1185
+  },
+  {
+    "file": "ogre_defeat_3.wav",
+    "seconds": 0.57,
+    "peak": 0.73,
+    "rms": 0.1241
+  }
+]

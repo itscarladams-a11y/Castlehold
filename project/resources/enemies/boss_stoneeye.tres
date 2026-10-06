@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1"]
+[ext_resource type="PackedScene" path="res://assets/characters/boss_gatebreaker.gltf" id="2"]
+[ext_resource type="Script" path="res://scripts/data/boss_data.gd" id="3"]
+
+[sub_resource type="Resource" id="Boss"]
+script = ExtResource("3")
+special_kind = "quake"
+warning = "EARTHSHATTER"
+special_interval = 9.0
+special_damage = 210.0
+structure_damage = 380.0
+radius = 3.8
+target_limit = 6
+knockback = 1.0
+bounty = 2250
+
+[resource]
+script = ExtResource("1")
+defeat_voice = "ogre"
+id = "boss_stoneeye"
+title = "Stone-Eye Warlord"
+category = "heavy"
+visual_scale = 1.08
+hp = 11800
+damage = 200.0
+interval = 2.5
+attack_range = 1.7
+speed = 1.10
+armor = 0.25
+spacing = 3.6
+hit_time = 1.2
+structure_damage_multiplier = 2.3
+splash_radius = 2.5
+splash_fraction = 0.50
+splash_targets = 4
+knockback = 0.6
+body_radius = 1.38
+impact_height = 3.5
+model = ExtResource("2")
+boss = SubResource("Boss")

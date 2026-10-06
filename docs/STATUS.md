@@ -1,0 +1,39 @@
+# Castlehold status — Stone & Steel 0.5.0
+
+**0.5.0 addendum:** the approved Bantam Entertainment red/black/gold no-domain logo is now part of the shipped project. Startup uses a solid-black studio splash with a real `ResourceLoader`-driven red/gold progress bar, plus the same logo as the engine boot splash. See `BANTAM_BRANDING_0.5.0.md`.
+
+**0.4.9 addendum:** the first 2026-quality production pass focuses on combat readability and scene density: material-aware impacts, dedicated impact audio variants, sparse footsteps, distance-aware camera trauma, unsynchronized idle presentation, impact squash, opaque streak VFX and new battlefield-side debris. The fixed mobile budgets and 0.4.6 anti-flash safeguards remain in place. See `PREMIUM_COMBAT_0.4.9.md`.
+
+
+**0.4.8 addendum:** wave 120 is now explicitly one final boss event comprising The Gravecaller and his surviving army. The necromancer can die before his troops, but VICTORY and the new synthesized fanfare trigger only when the final queue and battlefield are empty. The HUD keeps a final-legion boss panel active after the necromancer falls. Battle speed now reaches 4×, and a manual Save control pauses and writes a current-state continuation while preserving the in-session wave-start Retry checkpoint. Android backgrounding also attempts a live save. See `FINAL_VICTORY_CONTROLS_0.4.8.md`.
+
+
+**0.4.7 addendum:** the campaign now runs 120 waves. Wave 120 adds The Gravecaller, a large ogre necromancer with a new authored model, green ritual warning/VFX, an original necromancy cue and four Raise the Dead phases. Each phase can raise up to 12 new articulated ogre-skeleton enemies directly around the boss, while the fixed 84-enemy performance ceiling remains enforced. Completed 100-wave 0.4.6 saves migrate into the wave-101 continuation gap. See `NECROMANCER_0.4.7.md`.
+
+**0.4.6 addendum:** an Android anti-flash pass replaces the two blended sun-shadow cascades with one bounded orthogonal shadow map, removes decorative scenery from dynamic shadow casting, separates contact-shadow planes from the terrain, uses depth-prepass transparency where helpful, and softens boss warnings plus pooled dust/sparks. Gameplay and boss cadence remain unchanged. See `ANTI_FLASH_0.4.6.md`.
+
+**0.4.5 addendum:** boss milestones now occur every 20 waves at 20, 40, 60, 80 and 100. Stone-Eye Warlord fills the new wave-80 slot as a stronger cyclops variant using the authored Gatebreaker rig; Ironjaw King remains the final wave-100 boss.
+
+**0.4.4 addendum:** the fortress now gets a larger-scale silhouette overhaul: chunkier gatehouse massing, larger front towers, a raised central watch chamber, a taller keep, twin roof turrets, a taller watchtower and roofed side corner towers. 1×/2×/3× battle speed and louder four-channel human/orc/ogre defeat voices remain in place. See `CASTLE_OVERHAUL_0.4.4.md` and `SPEED_AND_VOICES_0.4.2.md`.
+
+The castle and all sixteen character assets now use finer original surfaces and geometry. Brown sandstone courses, gate relief, recessed openings and static braziers improve the fortress. Soldiers gain layered plate, textured mail/cloth and clearer hands; ogres gain shaped torsos, face detail and armor. Three shared 512² surface atlases retain one surface per complete unit. Nine brief original synthesized human/orc/ogre defeat clips now play through four bounded Effects-bus players at a louder character mix and respect speed, pause, mute and backgrounding. See GRAPHICS_AND_SOUND_UPDATE.md and stone-and-steel-review.png.
+
+Attacker damage is 12% stronger, including charge bonuses and boss specials. Interval income and boss bounties support paid rebuilding. Ordinary ogres retain five-wave spacing. Wave timing, troop prices, friendly stats, capacities and save format are unchanged. The earlier 100-wave mixed-policy validation remains historical evidence for the pre-extension campaign. The 0.4.7 workflow now re-runs the endurance policy across all 120 waves, including the Gravecaller event. Android export and physical device review remain outstanding.
+
+Five boss encounters now run at waves 20, 40, 60, 80 and 100: Gatebreaker, Dreadscale Rider, Ashcaller, Stone-Eye Warlord and Ironjaw King. They have original skinned geometry, articulated weapons/mounts, twelve clips each, named health displays, anticipated heavy attacks, limited splash and persistent combat state. Ironjaw's two roars queue supporting troops at the enemy road. They supplement regular formations without interrupting nonstop pacing. Boss death awards a fixed rebuilding bounty. See SIEGE_BOSSES_UPDATE.md and the actual-model CPU preview, siege-bosses-review.png.
+
+The horde now includes an ogre axeman on a giant armored warthog and an antler-crowned ogre fire shaman. The mount has a full articulated gait, tusks, cloven hooves, charge acceleration and impact knockback. The shaman has an animated ember staff with bone-attached flame, a timed cast, pooled traveling fireballs and original cast/impact sounds. Small blasts hit at most two secondary opponents, respect height and armor, and bypass arrow-only shield resistance. The new units replace formation slots from waves 25 and 18; late assaults can combine them. Checkpoint restoration and real pause/resume cover both enemies.
+
+Six original animated enemy models now form a distinct fantasy faction: Orc Marauder, Orc Hunter, Orc Impaler, Ironshield Orc, Warg Rider and Siege Ogre. Tusks, pointed ears, rough armor, larger shields, wolf mounts and heavy clubs give them recognizable silhouettes. Defenders remain medieval archers, swordsmen, spearmen and mounted knights.
+
+Horde mechanics include arrow-resistant shields, anticipated ogre club strikes, bounded nearby splash damage, extra structure damage, staged introductions and five-lane reinforcements. Swordsmen favor shields, archers focus on ogres and mounted defenders pursue hunters along the wings. Cavalry pursuit reaches hunters outside the old 12-metre cutoff while staying inside the deployment road.
+
+The reported flashing prompted a fix to pooled dust's first-frame opacity/size, softer non-emissive sparks, greater animated culling bounds, a tighter camera depth range, blended shadow cascades, filtered fine shader patterns and 4× main-view MSAA. These changes require physical Android confirmation; no claim is made that every device-specific flash has been reproduced or eliminated.
+
+The warm sandstone fortress, finer slate roofs, original material maps, animated heraldry, soft contact shadows and portrait rendering remain included. The original 80-second medieval instrumental starts at 35%, with independent live music/effects sliders, mute, persistent preferences and background suspension.
+
+The active mode has 120 automatic 10–15-second assaults and 3–5-second reinforcement gaps. Existing enemies keep fighting. Recruitment and Gate/Keep repairs remain available during combat and pause. Survivors recover at wave starts; casualties stay lost and castle damage persists. Version 2 checkpoints support old enemy IDs, saved reinforcement cadence, paused restore/retry and legacy garrison migration.
+
+Combat uses local crowd buckets, ranged damage reservations, soft counters, mounted charges and wounded-knight withdrawal. Active force limits and pooled projectiles/effects bound ordinary runtime growth. Headless mechanics and full-siege policy evidence is recorded in VALIDATION.md; human balance and device performance still require playtesting.
+
+The original brief's wizard/spells, captain abilities, ladders, rams, catapults, siege towers, wall-collapse routes, expanded upgrades, tutorial, layered crowd/horse audio and actor-recorded voice performances, adaptive boss music, graphics/accessibility settings and art variants remain future work. Wall/Mage Tower HP is scaffolding. This update does not claim the full commercial production brief is complete.

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unit_data.gd" id="1"]
+[ext_resource type="PackedScene" path="res://assets/characters/ogre_skeleton.gltf" id="2"]
+
+[resource]
+script = ExtResource("1")
+defeat_voice = "ogre"
+id = "ogre_skeleton"
+title = "Raised Ogre Skeleton"
+category = "heavy"
+visual_scale = 1.10
+hp = 620.0
+damage = 58.0
+interval = 2.05
+attack_range = 1.85
+speed = 1.95
+armor = 0.05
+spacing = 1.42
+hit_time = 0.78
+structure_damage_multiplier = 1.85
+splash_radius = 1.25
+splash_fraction = 0.28
+splash_targets = 1
+knockback = 0.24
+body_radius = 0.62
+impact_height = 2.65
+model = ExtResource("2")
