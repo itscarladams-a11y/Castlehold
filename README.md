@@ -1,4 +1,4 @@
-# Castlehold — Stone & Steel 0.5.0
+# Castlehold — Stone & Steel 0.5.1
 
 Warmer, finer castle masonry, textured medieval armor and cloth, and more detailed ogre faces and bodies improve the existing 3D cast. **Attackers deal 12% more damage**, including charges and boss specials. Defeated men give a short oof; orcs and ogres have distinct rough grunts. Three original synthesized variations per faction play through the adjustable Sound effects level, through a fixed four-channel voice pool so several nearby deaths can be heard without unbounded stacking.
 
@@ -7,6 +7,13 @@ Boss bounties and wave income increase to fund replacements after stronger attac
 ![Actual castle and character meshes, CPU material preview](docs/stone-and-steel-review.png)
 
 The image inspects actual project geometry with approximate lighting. It is not an Android gameplay screenshot. See `docs/GRAPHICS_AND_SOUND_UPDATE.md`, `docs/CASTLE_OVERHAUL_0.4.4.md` and `docs/VALIDATION.md` for the changes and remaining device review.
+
+
+## 0.5.1 — GitHub test hotfix
+
+- Battlefield-side dressing now receives deterministic unique node names for both runtime inspection and regression testing.
+- The premium-combat regression verifies the actual two carts, two stake lines and four rock clusters, and confirms every one remains outside the combat lane.
+- No combat balance, art, branding, save, wave or finale behavior changed from 0.5.0.
 
 ## 0.5.0 — Bantam Entertainment branding
 

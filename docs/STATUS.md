@@ -1,5 +1,6 @@
-# Castlehold status — Stone & Steel 0.5.0
+# Castlehold status — Stone & Steel 0.5.1
 
+**0.5.1 addendum:** fixes the premium-combat GitHub regression by giving battlefield-side dressing deterministic unique names and validating both count and position outside the fight lane. Runtime scenery content is unchanged.
 **0.5.0 addendum:** the approved Bantam Entertainment red/black/gold no-domain logo is now part of the shipped project. Startup uses a solid-black studio splash with a real `ResourceLoader`-driven red/gold progress bar, plus the same logo as the engine boot splash. See `BANTAM_BRANDING_0.5.0.md`.
 
 **0.4.9 addendum:** the first 2026-quality production pass focuses on combat readability and scene density: material-aware impacts, dedicated impact audio variants, sparse footsteps, distance-aware camera trauma, unsynchronized idle presentation, impact squash, opaque streak VFX and new battlefield-side debris. The fixed mobile budgets and 0.4.6 anti-flash safeguards remain in place. See `PREMIUM_COMBAT_0.4.9.md`.

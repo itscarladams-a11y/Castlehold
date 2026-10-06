@@ -1,6 +1,6 @@
 # Android build
 
-Current game: **0.5.0 Stone & Steel**, version code 19. `Castlehold-Fresh-Install.zip` contains the entire source tree and assets for a new repository. Use **FRESH_INSTALL.md** or the command block in README.md. Run `git pull --ff-only` before extraction so Codespaces receives the uploaded ZIP.
+Current game: **0.5.1 Stone & Steel**, version code 20. `Castlehold-Fresh-Install.zip` contains the entire source tree and assets for a new repository. Use **FRESH_INSTALL.md** or the command block in README.md. Run `git pull --ff-only` before extraction so Codespaces receives the uploaded ZIP.
 
 Engine pinned: Godot 4.7.2 stable, standard GDScript edition. Android preset: arm64, landscape, immersive, offline, debug package `com.castlehold.firststand`. No C# or Gradle plugin is required for the supplied APK preset.
 
@@ -18,7 +18,7 @@ If a workflow run is named **Add files via upload**, it may be the run triggered
 
 The complete source ZIP has no wrapper folder and needs no previous game files. Uploading the ZIP alone leaves its files archived; the source commit installs and triggers the workflow.
 
-Earlier builds were installed by the user. This 0.5.0 package has passed local archive/static/resource checks in the current workspace; the included GitHub Actions run is the authoritative Godot 4.7.2 import/parser/test/export check, and Android installation still needs device confirmation. A debug APK is for testing, not a Play Store release. Its signing key is regenerated on each CI run; updates from different runs may require uninstall/reinstall, which removes local progress. Before repeated distribution, store one persistent private debug key in GitHub Actions secrets and load it in the workflow. Never commit a release key.
+Earlier builds were installed by the user. This 0.5.1 package has passed local archive/static/resource checks in the current workspace; the included GitHub Actions run is the authoritative Godot 4.7.2 import/parser/test/export check, and Android installation still needs device confirmation. A debug APK is for testing, not a Play Store release. Its signing key is regenerated on each CI run; updates from different runs may require uninstall/reinstall, which removes local progress. Before repeated distribution, store one persistent private debug key in GitHub Actions secrets and load it in the workflow. Never commit a release key.
 
 ## Local export
 Install Godot's matching export templates, OpenJDK 17 and Android SDK. Configure Editor Settings → Export → Android with SDK and Java paths. The included workflow pins platform 35 and build-tools 35.0.1; verify these requirements against the engine when changing versions. For non-Gradle APK export, the prebuilt templates supply native code. Custom native/Gradle builds require the additional NDK/CMake dependencies described by Godot.
@@ -69,6 +69,11 @@ Version code 12 retains the package ID, version 2 campaign checkpoints and separ
 
 Version code 14 keeps the same package ID and version-two checkpoint format. Boss encounters now occur at waves 20, 40, 60, 80 and 100. The wave-80 Stone-Eye Warlord is a stronger cyclops variant that reuses the authored Gatebreaker boss rig and special-animation set. Ironjaw remains the final boss at wave 100. Existing saves remain compatible; already-passed milestones are not replayed.
 
+
+
+## Stone & Steel 0.5.1 — GitHub test hotfix
+
+The premium-combat regression now uses deterministic unique scenery node names and verifies that the two broken carts, two stake lines and four rock clusters are truly positioned outside the combat lane. This fixes the GitHub Actions failure caused by Godot automatically renaming duplicate sibling nodes. Game behavior is otherwise unchanged from 0.5.0.
 
 ## Stone & Steel 0.5.0 — Bantam Entertainment branding
 

@@ -1,14 +1,13 @@
 extends SceneTree
-## Castlehold 0.4.9 premium combat/presentation regression checks.
+## Castlehold 0.5.1 premium combat/presentation regression checks.
 var failures:=0
 func _initialize():call_deferred("run")
 func check(ok: bool,label: String):
 	if ok:print("PASS: "+label)
 	else:push_error("FAIL: "+label);failures+=1
-func count_named(node: Node,name: String) -> int:
-	var total:=1 if node.name==name else 0
-	for child in node.get_children():total+=count_named(child,name)
-	return total
+func collect_prefix(node: Node,prefix: String,out: Array[Node]):
+	if String(node.name).begins_with(prefix):out.append(node)
+	for child in node.get_children():collect_prefix(child,prefix,out)
 func run():
 	var game=load("res://scenes/battle/battle.tscn").instantiate();root.add_child(game)
 	await process_frame;await process_frame;game.set_physics_process(false);game.audio.muted=true
@@ -31,7 +30,13 @@ func run():
 	for slot in game.vfx.slots:
 		if slot.kind=="streak" and slot.life>0:active_streak=true
 	check(active_streak,"heavy hit activates pooled streak geometry")
-	check(count_named(game,"BrokenSiegeCart")>=2 and count_named(game,"AbandonedStakes")>=2 and count_named(game,"BattlefieldRockCluster")>=4,"battlefield side dressing is present outside the combat lane")
+	var carts:Array[Node]=[];var stakes:Array[Node]=[];var rocks:Array[Node]=[]
+	collect_prefix(game,"BrokenSiegeCart_",carts);collect_prefix(game,"AbandonedStakes_",stakes);collect_prefix(game,"BattlefieldRockCluster_",rocks)
+	var dressing_outside_lane:=true
+	for group in [carts,stakes,rocks]:
+		for node in group:
+			if absf(node.global_position.z)<5.5:dressing_outside_lane=false
+	check(carts.size()>=2 and stakes.size()>=2 and rocks.size()>=4 and dressing_outside_lane,"battlefield side dressing is present outside the combat lane")
 	check(is_instance_valid(game.units[0].animator) and game.units[0].visual_base_scale.length()>0,"troops retain animated presentation state and per-unit silhouette scale")
 	game.audio.stop_all();game.queue_free();await process_frame
 	print("PREMIUM COMBAT COMPLETE failures=",failures);quit(failures)

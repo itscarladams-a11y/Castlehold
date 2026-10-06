@@ -199,7 +199,7 @@ func show_credits():
 	if is_instance_valid(overlay) and overlay_kind=="credits":close_credits();return
 	var col:=begin_overlay("credits",Vector2(940,575))
 	var text:=TextEdit.new();text.custom_minimum_size=Vector2(900,460);text.editable=false
-	text.text="CASTLEHOLD — Stone & Steel 0.5.0\nBantam Entertainment
+	text.text="CASTLEHOLD — Stone & Steel 0.5.1\nBantam Entertainment
 Original medieval defenders, orc warriors, warg mounts, siege ogres, giant warthog riders, fire shamans, six boss encounters including the wave-120 Gravecaller and raised ogre skeletons, sculpted armor, surface textures, overhauled fortress geometry and synthesized audio created for this game. Combat impacts now use material-aware body, metal, bone and heavy-hit variants with restrained camera feedback.\nDefeat voices: original synthesized human oofs, orc exhalations and ogre grunts, mixed louder through a four-channel voice pool. No external voice recordings.\nBattle speed: tap the 1× / 2× / 3× / 4× control during play or while paused.\nSave: pauses and stores the current battle so you can continue later.\nMusic: The Valley Watch — original composition and synthesized lute, recorder, dulcimer and hand percussion. No third-party music or samples.\n120 automatic waves. 10–15 second assaults, 3–5 second reinforcement gaps.\n\nGodot Engine\n"+Engine.get_license_text()+"\n\nThird-party engine notices\n"+str(Engine.get_license_info())
 	text.wrap_mode=TextEdit.LINE_WRAPPING_BOUNDARY;col.add_child(text);col.add_child(button("Close",close_credits));refresh()
 func close_credits():

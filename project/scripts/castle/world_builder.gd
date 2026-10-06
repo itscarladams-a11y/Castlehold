@@ -45,11 +45,12 @@ func build(game: Node3D):
 		grass_tuft(Vector3(x,.01,z))
 	# Battlefield storytelling stays outside the combat lane: abandoned gear,
 	# rough stakes and stone clusters add depth without extra animated actors.
-	broken_cart(Vector3(11.5,0,-6.15),-.18)
-	broken_cart(Vector3(19.0,0,6.65),PI+.28)
-	stake_line(Vector3(14.0,0,6.2),6,-.18)
-	stake_line(Vector3(4.0,0,-6.0),5,.14)
-	for at in [Vector3(-1.5,0,6.45),Vector3(7.2,0,-6.55),Vector3(17.0,0,-6.2),Vector3(22.0,0,5.8)]:rock_cluster(at)
+	broken_cart(Vector3(11.5,0,-6.15),-.18,"BrokenSiegeCart_North")
+	broken_cart(Vector3(19.0,0,6.65),PI+.28,"BrokenSiegeCart_South")
+	stake_line(Vector3(14.0,0,6.2),6,-.18,"AbandonedStakes_South")
+	stake_line(Vector3(4.0,0,-6.0),5,.14,"AbandonedStakes_North")
+	var rock_sites: Array[Vector3]=[Vector3(-1.5,0,6.45),Vector3(7.2,0,-6.55),Vector3(17.0,0,-6.2),Vector3(22.0,0,5.8)]
+	for i in rock_sites.size():rock_cluster(rock_sites[i],"BattlefieldRockCluster_%02d"%[i+1])
 	var light:=DirectionalLight3D.new();light.name="ValleySun";light.rotation_degrees=Vector3(-48,-35,0)
 	light.light_color=Color("ffe6c5");light.light_energy=1.12;light.shadow_enabled=true
 	# Mobile stability pass: one orthogonal shadow map avoids split/cascade handoffs
@@ -70,14 +71,14 @@ func build(game: Node3D):
 	env.environment.ambient_light_energy=.55
 	env.environment.tonemap_mode=Environment.TONE_MAPPER_FILMIC;root.add_child(env)
 
-func rock_cluster(at: Vector3):
-	var holder:=Node3D.new();holder.name="BattlefieldRockCluster";root.add_child(holder);holder.position=at
+func rock_cluster(at: Vector3, node_name: String):
+	var holder:=Node3D.new();holder.name=node_name;root.add_child(holder);holder.position=at
 	for i in 5:
 		var r:=rng.randf_range(.16,.38)
 		var stone:=cone(holder,Vector3(rng.randf_range(-.48,.48),r*.55,rng.randf_range(-.36,.36)),r,r*.62,r*1.15,"6f6d62",7)
 		stone.rotation.y=rng.randf_range(-PI,PI);stone.rotation.z=rng.randf_range(-.25,.25)
-func broken_cart(at: Vector3, angle: float):
-	var holder:=Node3D.new();holder.name="BrokenSiegeCart";root.add_child(holder);holder.position=at;holder.rotation.y=angle
+func broken_cart(at: Vector3, angle: float, node_name: String):
+	var holder:=Node3D.new();holder.name=node_name;root.add_child(holder);holder.position=at;holder.rotation.y=angle
 	box(holder,Vector3(0,.42,0),Vector3(1.55,.16,.88),"66503a")
 	box(holder,Vector3(-.54,.74,0),Vector3(.16,.72,.82),"765a3d")
 	for z in [-.52,.52]:
@@ -85,8 +86,8 @@ func broken_cart(at: Vector3, angle: float):
 		var hub:=cone(holder,Vector3(.25,.36,z*1.015),.13,.13,.12,"2f3434",10);hub.rotation.x=PI/2
 	box(holder,Vector3(.95,.35,.12),Vector3(1.45,.10,.12),"765a3d",-.18)
 	box(holder,Vector3(1.12,.30,-.18),Vector3(1.22,.09,.10),"765a3d",.13)
-func stake_line(at: Vector3, count: int, angle: float):
-	var holder:=Node3D.new();holder.name="AbandonedStakes";root.add_child(holder);holder.position=at;holder.rotation.y=angle
+func stake_line(at: Vector3, count: int, angle: float, node_name: String):
+	var holder:=Node3D.new();holder.name=node_name;root.add_child(holder);holder.position=at;holder.rotation.y=angle
 	for i in count:
 		var z:float=(i-(count-1)*.5)*.44
 		var stake:=cone(holder,Vector3((i%2)*.12,.48,z),.065,.018,.96,"5b4934",6)
